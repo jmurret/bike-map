@@ -1,7 +1,7 @@
 bike-map
 =======
 
-A map of on-demand bike vendors in cities around the world.
+A map of on-demand bike vendors in cities around the world using mapbox, react-map-gl, and deck.gl.
 
 Steps to run:
 --------------------------
