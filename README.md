@@ -1,7 +1,7 @@
 bike-map
 =======
 
-A map of on-demand bike vendors in cities around the world using mapbox, react-map-gl, and deck.gl.
+A map of on-demand bike vendors in cities around the world using mapbox, react-map-gl, and deck.gl.  A simple POC to explore the capabilities of react-map-gl and deck.gl for an eventual product.
 
 Steps to run:
 --------------------------
