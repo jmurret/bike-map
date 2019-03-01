@@ -1,11 +1,11 @@
 {
-  "main.js": "/bike-map/public/static/js/main.35963c58.chunk.js",
-  "main.js.map": "/bike-map/public/static/js/main.35963c58.chunk.js.map",
-  "runtime~main.js": "/bike-map/public/static/js/runtime~main.50e36ff8.js",
-  "runtime~main.js.map": "/bike-map/public/static/js/runtime~main.50e36ff8.js.map",
-  "static/js/2.cefb7e6e.chunk.js": "/bike-map/public/static/js/2.cefb7e6e.chunk.js",
-  "static/js/2.cefb7e6e.chunk.js.map": "/bike-map/public/static/js/2.cefb7e6e.chunk.js.map",
-  "index.html": "/bike-map/public/index.html",
-  "precache-manifest.56ae9010cf95790a370f7bc7c99505f7.js": "/bike-map/public/precache-manifest.56ae9010cf95790a370f7bc7c99505f7.js",
-  "service-worker.js": "/bike-map/public/service-worker.js"
+  "main.js": "/bike-map/static/js/main.658f6a61.chunk.js",
+  "main.js.map": "/bike-map/static/js/main.658f6a61.chunk.js.map",
+  "runtime~main.js": "/bike-map/static/js/runtime~main.1a0ea9fa.js",
+  "runtime~main.js.map": "/bike-map/static/js/runtime~main.1a0ea9fa.js.map",
+  "static/js/2.9cffd941.chunk.js": "/bike-map/static/js/2.9cffd941.chunk.js",
+  "static/js/2.9cffd941.chunk.js.map": "/bike-map/static/js/2.9cffd941.chunk.js.map",
+  "index.html": "/bike-map/index.html",
+  "precache-manifest.9935a474f20d41560c268dc92f427d88.js": "/bike-map/precache-manifest.9935a474f20d41560c268dc92f427d88.js",
+  "service-worker.js": "/bike-map/service-worker.js"
 }
