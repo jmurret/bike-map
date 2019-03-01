@@ -1,6 +1,6 @@
 import { ScatterplotLayer } from 'deck.gl';
 
-export default ({ data, onHover, settings }) => {
+export default ({ data, onHover, settings, onClick }) => {
   return new ScatterplotLayer({
       id: 'scatterplot',
       getPosition: d => [d.location.longitude, d.location.latitude],
@@ -12,6 +12,7 @@ export default ({ data, onHover, settings }) => {
       radiusMaxPixels: 30,
       data,
       onHover,
+      onClick,
       ...settings
     });
 }
