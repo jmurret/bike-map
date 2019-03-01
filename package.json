@@ -2,6 +2,7 @@
   "name": "bike-map",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jmurret.github.io/bike-map/",
   "dependencies": {
     "deck.gl": "^6.4.5",
     "react": "^16.8.3",
