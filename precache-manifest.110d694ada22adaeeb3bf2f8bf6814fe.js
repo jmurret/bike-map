@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "658f6a613c7ec15da94b",
-    "url": "/bike-map/static/js/main.658f6a61.chunk.js"
+    "revision": "ffd436aa04d074ba946d",
+    "url": "/bike-map/static/js/main.ffd436aa.chunk.js"
   },
   {
     "revision": "1a0ea9fae7a624375b2d",
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/bike-map/static/js/2.9cffd941.chunk.js"
   },
   {
-    "revision": "373c1677143315915c9ca917dc8045e0",
+    "revision": "66ee68d621f3d80faf9e37ca3d5b2c89",
     "url": "/bike-map/index.html"
   }
 ];
