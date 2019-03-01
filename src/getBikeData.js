@@ -1,4 +1,4 @@
-const URL = 'http://api.citybik.es/v2/networks';
+const URL = 'https://api.citybik.es/v2/networks';
 
 export default async ()=> {
   const response = await fetch(URL);
