@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getBikeData from './getBikeData';
+import {getBikeNetworks} from './apiClient';
 import NetworkMap from './NetworkMap';
 
 const TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   async _fetchBikeNetworks(){
-    const networks = await getBikeData();
+    const networks = await getBikeNetworks();
     this.setState({ networks });
   }
 

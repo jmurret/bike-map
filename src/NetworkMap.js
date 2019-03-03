@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import MapGL, {Popup, Marker, NavigationControl} from 'react-map-gl';
-import NetworkMarkers from './NetworkMarkers';
-import NetworkPopup from './NetworkPopup';
+import DeckGL from 'deck.gl';
+import MapGL, { FlyToInterpolator} from 'react-map-gl';
+import {easeCubic} from 'd3-ease';
+import getLayers from './getLayers';
 
-const navStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  padding: '10px'
-};
 const MAP_STYLE = 'mapbox://styles/mapbox/light-v9';
+
+export const tooltipStyle = {
+  position: 'absolute',
+  padding: '4px',
+  background: 'rgba(0, 0, 0, 0.8)',
+  color: '#fff',
+  maxWidth: '300px',
+  fontSize: '10px',
+  zIndex: 9,
+  pointerEvents: 'none',
+  cursor: 'pointer',
+};
 
 export default class App extends Component {
   state = {
@@ -20,35 +27,58 @@ export default class App extends Component {
       bearing: 0,
       pitch: 0
     },
+    hover: {
+      x: 0,
+      y: 0,
+      hoveredObject: null
+    },
+    style: MAP_STYLE,
   }
 
-  _updateViewport = (viewport) => {
+  onStyleChange = style => {
+    this.setState({ style });
+  };
+
+  _onViewportChange = viewport => {
+       this.setState({viewport});
+   };
+
+  _onClick = ({ x, y, object, lngLat }) => {
+    console.log({ x, y, object, lngLat });
+    const viewport = {
+        ...this.state.viewport,
+        longitude: lngLat[0],
+        latitude: lngLat[1],
+        zoom: 13,
+        transitionDuration: 5000,
+        transitionInterpolator: new FlyToInterpolator(),
+        transitionEasing: easeCubic
+    };
     this.setState({viewport});
-  }
-
-  _handleClick = (network) => {
-    this.setState({network});
-  }
-
-  _handleNetworkPopupClose = () => {
-    console.log('clicked')
-    this.setState({network: null})
-  }
+  };
 
   render() {
     const {token, networks} = this.props;
-    const {viewport, network} = this.state;
+    const {viewport, style} = this.state;
     return (
       <MapGL
         {...viewport}
+        mapStyle={style}
         width="100%"
         height="100%"
-        mapStyle={MAP_STYLE}
-        onViewportChange={this._updateViewport}
-        mapboxApiAccessToken={token}>
-        <NetworkMarkers networks={networks} onMarkerClick={this._handleClick}/>
-        <NetworkPopup network={network} onClose={this._handleNetworkPopupClose} />
+        maxPitch={85}
+        onViewportChange={this._onViewportChange} mapboxApiAccessToken={token}>
+      <DeckGL
+          layers={(getLayers({
+            data: networks,
+            onClick: click => this._onClick(click),
+          }))}
+          initialViewState={viewport}
+          controller
+          onViewportChange={this._onViewportChange}
+        >
+        </DeckGL>
       </MapGL>
-    );
+      );
   }
 }
