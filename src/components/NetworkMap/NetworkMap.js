@@ -61,11 +61,9 @@ export default class NetworkMap extends Component {
     if (mode === MODES.networks) {
       onNetworkSelected(object);
     }
-    else console.log('pin clicked');
   }
   //
   // _handleNetworkPopupClose = () => {
-  //   console.log('clicked')
   //   this.setState({network: null})
   // }
 

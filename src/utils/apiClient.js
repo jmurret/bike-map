@@ -10,7 +10,6 @@ const getBikeNetworks =  async ()=> {
     const data = await _getData('/v2/networks', 'networks');
     const networks = data.map(x => _transformNetwork(x));
     networks.sort((a, b) => (a.name - b.name));
-    console.log({networks});
     return networks;
 };
 
@@ -21,7 +20,7 @@ const getBikeNetwork =  async (path)=> {
 
 const _transformNetwork = (network) => {
   const {location, ...net} = network;
-  return {...net, ...location, search: `${net.name} ${location.city} ${location.country}`};
+  return {...net, ...location, search: `${location.city}, ${location.country} - ${net.name}`};
 }
 
 export {

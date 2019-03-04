@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import AutocompleteStyled from './AutocompleteStyled';
 import {KEYS} from '../../utils/constants';
-
+import AutocompleteOptionsList from './AutocompleteOptionsList';
+import AutocompleteInput from './AutocompleteInput';
 
 export class Autocomplete extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export class Autocomplete extends Component {
       selectedOption,
       filteredOptions: [],
       showOptions: false,
-      inputValue: selectedOption ? selectedOption.name : '',
+      inputValue: selectedOption ? selectedOption.search : '',
     };
   }
 
@@ -21,7 +22,7 @@ export class Autocomplete extends Component {
       const {selectedOption} = this.props;
       this.setState({
         selectedOption,
-        inputValue: selectedOption ? selectedOption.name : '',
+        inputValue: selectedOption ? selectedOption.search : '',
       });
     }
   }
@@ -43,7 +44,7 @@ export class Autocomplete extends Component {
     });
   };
 
-  _onClick = (e) => {
+  _onOptionClick = (e) => {
     const selectedOption = this.state.filteredOptions[this.state.activeIndex];
     this._onSelect(selectedOption);
     this.setState({
@@ -60,7 +61,7 @@ export class Autocomplete extends Component {
     onSelect(option);
   }
 
-  _onClearSelectedOption = () => {
+  _onClear = () => {
     const selectedOption = null;
     this._onSelect(selectedOption);
     this.setState({
@@ -82,7 +83,7 @@ export class Autocomplete extends Component {
         activeIndex: 0,
         selectedOption,
         showOptions: false,
-        inputValue: filteredOptions[activeIndex].name
+        inputValue: filteredOptions[activeIndex].search
       });
     } else if (e.keyCode === KEYS.upArrow) {
       if (activeIndex === 0) {
@@ -91,7 +92,6 @@ export class Autocomplete extends Component {
       this.setState({ activeIndex: activeIndex - 1 });
     } else if (e.keyCode === KEYS.downArrow) {
       if (activeIndex === filteredOptions.length - 1) {
-        console.log(activeIndex);
         return;
       }
       this.setState({ activeIndex: activeIndex + 1 });
@@ -99,52 +99,25 @@ export class Autocomplete extends Component {
   };
 
   render() {
-    const {
-      _onChange,
-      _onClick,
-      _onKeyDown,
-      state: { activeIndex, filteredOptions, showOptions, inputValue, selectedOption }
-    } = this;
-    const {displayField} = this.props;
-    let optionList;
-    if (showOptions && inputValue) {
-      optionList = (
-        <ul className="options">
-          {filteredOptions.map((option, index) => {
-            let className;
-            if (index === activeIndex) {
-              className = 'option-active';
-            }
-            return (
-              <li className={className} key={index} onClick={_onClick}>
-                {option[displayField]}
-              </li>
-            );
-          })}
-        </ul>
-      );
-    }
+    const { activeIndex, filteredOptions, showOptions, inputValue, selectedOption } = this.state;
+    const {displayField, placeholder} = this.props;
     return (
       <AutocompleteStyled>
-        <div className="autocomplete">
-          <input
-            type="text"
-            className="autocomplete--input"
-            onChange={_onChange}
-            onKeyDown={_onKeyDown}
-            value={inputValue}
-            disabled={!!selectedOption}
-          />
-          <div className="autocomplete--search-icon"></div>
-          {!!selectedOption ?
-            <button className="autocomplete--delete-icon" type="button" onClick={this._onClearSelectedOption}>
-              <svg viewBox="0 0 24 24" focusable="false">
-              <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fillRule="evenodd"></path>
-              </svg>
-            </button>
-          : null}
-        </div>
-        {optionList}
+        <AutocompleteInput
+          onChange={this._onChange}
+          onKeyDown={this._onKeyDown}
+          inputValue={inputValue}
+          disabled={!!selectedOption}
+          onClear={this._onClear}
+          placeholder={placeholder}
+        />
+        {showOptions && inputValue ?
+          <AutocompleteOptionsList
+            options={filteredOptions}
+            activeIndex={activeIndex}
+            displayField={displayField}
+            onOptionClick={this._onOptionClick}
+          /> : null}
       </AutocompleteStyled>
     );
   }
