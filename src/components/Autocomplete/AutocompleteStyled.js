@@ -30,7 +30,6 @@ export const AutocompleteInputStyled = styled.div`
   }
   input:focus {
     outline: none;
-    border: 4px solid grey;
   }
 `;
 export const AutoCompleteDeleteIcon = styled.button`
