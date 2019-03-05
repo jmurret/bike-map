@@ -1,0 +1,28 @@
+{
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}",
+    "!src/**/*.test.{js,jsx}",
+    "!src/**/*Styled.{js,jsx}",
+    "!src/**/*.config.{js,jsx}",
+    "!src/**/index.{js,jsx}",
+    "!src/**/constants/*.js",
+    "!src/**/serviceWorker.js"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "statements": 90,
+      "branches": 80,
+      "functions": 90,
+      "lines": 90
+    }
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
+  "setupTestFrameworkScriptFile": "<rootDir>/test.config.js",
+  "testRegex": "src/.*\\.test\\.js$",
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "coverageReporters": ["json", "lcov", "text", "cobertura"],
+  "testURL": "http:/localhost:5555/"
+}

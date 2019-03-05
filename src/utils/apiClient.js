@@ -1,15 +1,14 @@
-const BASE_URL = 'https://api.citybik.es';
+import {API_BASE_URL} from './constants';
 
 const _getData =  async (path, rootObjectName)=> {
-  const response = await fetch(`${BASE_URL}${path}`);
+  const response = await fetch(`${API_BASE_URL}${path}`);
   const json = await response.json();
   const data = json && json[rootObjectName];
-  return data || [];;
+  return data || [];
 };
 const getBikeNetworks =  async ()=> {
     const data = await _getData('/v2/networks', 'networks');
-    const networks = data.map(x => _transformNetwork(x));
-    networks.sort((a, b) => (a.name - b.name));
+    const networks = data.map(x => _transformNetwork(x)).sort((a, b) => (a.search - b.search));
     return networks;
 };
 

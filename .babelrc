@@ -1,0 +1,35 @@
+{
+  "plugins": [
+    "styled-components",
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "presets": [
+    ["@babel/preset-env",
+    {
+      "targets": {
+        "node": "current",
+      },
+    }],
+    "@babel/react",
+  ],
+  "env": {
+    "production": {
+      "only": [
+        "app"
+      ],
+      "plugins": [
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements",
+        "@babel/plugin-proposal-class-properties"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "babel-plugin-dynamic-import-node",
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }
+  },
+  "sourceMap" : "inline"
+}

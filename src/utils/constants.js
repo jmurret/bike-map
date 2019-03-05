@@ -1,3 +1,4 @@
+const API_BASE_URL = 'https://api.citybik.es';
 const MODES = {
   network: 'network',
   networks: 'networks',
@@ -30,7 +31,10 @@ const DEFAULT_MAP_STATE = {
   mode: MODES.networks,
   network: null,
 };
+
+
 export {
+  API_BASE_URL,
   DEFAULT_MAP_STATE,
   KEYS,
   MAP_STYLE,
