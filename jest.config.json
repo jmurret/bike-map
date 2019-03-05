@@ -20,7 +20,7 @@
     "node_modules",
     "src"
   ],
-  "setupTestFrameworkScriptFile": "<rootDir>/test.config.js",
+  "setupTestFrameworkScriptFile": "<rootDir>/testing/test.config.js",
   "testRegex": "src/.*\\.test\\.js$",
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "coverageReporters": ["json", "lcov", "text", "cobertura"],

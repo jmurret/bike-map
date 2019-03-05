@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test:watch": "react-scripts test",
+    "test:watch": "jest --config ./jest.config.json  --watch",
     "test": "jest --config ./jest.config.json --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -36,6 +36,7 @@
     "enzyme-adapter-react-16": "^1.10.0",
     "enzyme-to-json": "^3.3.5",
     "gh-pages": "^2.0.1",
+    "jest-fetch-mock": "^2.1.1",
     "jest-styled-components": "^6.3.1"
   }
 }

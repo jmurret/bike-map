@@ -21,21 +21,28 @@ export default class App extends Component {
   }
 
    _fetchBikeNetworks = async () => {
-    const networks = await getBikeNetworks();
-    this.setState({ networks, data: networks });
+     try {
+      const networks = await getBikeNetworks();
+      this.setState({ networks, data: networks });
+    } catch (err) {
+    }
   }
 
   _fetchBikeNetwork = async (object) => {
-    const network = await getBikeNetwork(object.href);
-    const mode = MODES.network;
-    this.setState({network, mode, data: network.stations});
+    try {
+      return await getBikeNetwork(object.href);
+    } catch (err) {
+    }
   }
 
-  _onNetworkSelect = (network) => {
-    if (!network) {
-      const mode = MODES.networks;
-      this.setState({network:null, mode, data: this.state.networks});
-    } else this._fetchBikeNetwork(network);
+  _onNetworkSelect = async (net) => {
+    if (!net) {
+      this.setState({network:null, mode: MODES.networks, data: this.state.networks});
+    } else {
+      const network = await this._fetchBikeNetwork(net);
+      this.setState({network, mode: MODES.network, data: network.stations});
+    }
+
   };
 
   render() {
@@ -49,7 +56,6 @@ export default class App extends Component {
             <HeaderStyled>
               <Logo />
               <Autocomplete
-                className='sidebar-header--search'
                 options={networks}
                 selectedOption={network}
                 searchField="search"

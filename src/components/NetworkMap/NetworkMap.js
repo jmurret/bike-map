@@ -40,9 +40,9 @@ export default class NetworkMap extends Component {
   //   });
   // };
 
-  _transitionToPosition = (updateViewPort) => {
+  _transitionToPosition = (updatedViewPort) => {
     const viewport = {
-        ...updateViewPort,
+        ...updatedViewPort,
         transitionDuration: 3000,
         transitionInterpolator: new FlyToInterpolator(),
         transitionEasing: easeCubic

@@ -24,7 +24,7 @@ const DEFAULT_MAP_STATE = {
     longitude: 0,
     zoom: 1,
     bearing: 0,
-    pitch: 0
+    pitch: 0,
   },
   style: MAP_STYLE,
   layers: [],
