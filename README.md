@@ -17,3 +17,5 @@ Steps to run:
 Notes:
 --------------------------
 -Some locations have a center point that is a little off with the default zoom level for the city.  Try a few and you will see.  Denver and Portland to name a few work really well.  
+
+John Murret (jmurret@yahoo.com)
