@@ -9,7 +9,8 @@ describe('getBikeNetworks', ()=> {
         resolve({ok: true, id: '123', json: ()=>(networksMockData)});
       });
     });
-    expect(await getBikeNetworks()).toEqual(transformedNetworksData);
+    const data = await getBikeNetworks();
+    expect(data[0]).toEqual(transformedNetworksData[1]);
   });
   it('should return empty array if api returns null', async ()=>{
     global.fetch = jest.fn().mockImplementation(() => {
@@ -28,6 +29,7 @@ describe('getBikeNetwork', ()=> {
         resolve({ok: true, id: '123', json: ()=>(networkMockData)});
       });
     });
-    expect(await getBikeNetwork('/v2/networks/denver')).toEqual(transformedNetworkData);
+    const data = await getBikeNetwork('/v2/networks/denver');
+    expect(data[0]).toEqual(transformedNetworkData[1]);
   });
 });

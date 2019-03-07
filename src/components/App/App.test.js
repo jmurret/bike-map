@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
 import { transformedNetworksData } from '../../../testing/networksMockData';
@@ -139,7 +138,6 @@ describe('<App', () => {
       expect(comp.state().data).toEqual(transformedNetworkData.stations);
       expect(comp.state().mode).toEqual(MODES.network);
       expect(comp.find(StationList).length).toEqual(1);
-      console.log(comp.debug());
     });
 
     it('should set state to network mode and show network stations when pressing enter while an option is active', async () => {
