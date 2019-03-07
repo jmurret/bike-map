@@ -13,7 +13,7 @@ export class Autocomplete extends Component {
       selectedOption,
       filteredOptions: [],
       showOptions: false,
-      inputValue: selectedOption ? selectedOption.search : '',
+      inputValue: '',
     };
   }
 

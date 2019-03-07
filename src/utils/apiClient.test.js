@@ -11,6 +11,14 @@ describe('getBikeNetworks', ()=> {
     });
     expect(await getBikeNetworks()).toEqual(transformedNetworksData);
   });
+  it('should return empty array if api returns null', async ()=>{
+    global.fetch = jest.fn().mockImplementation(() => {
+      return new Promise((resolve, reject) => {
+        resolve({ok: true, id: '123', json: ()=>(null)});
+      });
+    });
+    expect(await getBikeNetworks()).toEqual([]);
+  });
 });
 
 describe('getBikeNetwork', ()=> {

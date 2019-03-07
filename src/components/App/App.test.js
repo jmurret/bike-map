@@ -63,12 +63,14 @@ describe('<App', ()=> {
       it('should change the active option to the next record when using the down arrow', () => {
         comp.find('input').simulate('change', { target: { value: 'd' }});
         comp.find('input').simulate('keydown', { keyCode: KEYS.downArrow});
+        comp.find('input').simulate('keydown', { keyCode: KEYS.downArrow});
         expect(comp.find('.option-active').text()).toEqual('Denver, CO, US - Denver B-cycle');
       });
 
       it('should change the active option to the previous record when using the down arrow', () => {
         comp.find('input').simulate('change', { target: { value: 'd' }});
         comp.find('input').simulate('keydown', { keyCode: KEYS.downArrow});
+        comp.find('input').simulate('keydown', { keyCode: KEYS.upArrow});
         comp.find('input').simulate('keydown', { keyCode: KEYS.upArrow});
         expect(comp.find('.option-active').text()).toEqual('Nürnberg, DE - NorisBike');
       });
