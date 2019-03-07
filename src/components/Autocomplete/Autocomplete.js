@@ -29,7 +29,7 @@ export class Autocomplete extends Component {
 
   _onChange = (e) => {
     const { options, searchField } = this.props;
-    const inputValue = e.currentTarget.value;
+    const inputValue = e.target.value;
 
     const filteredOptions = options.filter(
       (option) =>
@@ -91,6 +91,7 @@ export class Autocomplete extends Component {
       }
       this.setState({ activeIndex: activeIndex - 1 });
     } else if (e.keyCode === KEYS.downArrow) {
+      console.log(e.keycode);
       if (activeIndex === filteredOptions.length - 1) {
         return;
       }
