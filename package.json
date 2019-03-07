@@ -15,8 +15,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test:watch": "jest --config ./jest.config.json  --watch",
-    "test": "jest --config ./jest.config.json --coverage",
+    "test:watch": "jest --config ./jest.config.json  --setupFiles dotenv/config --watch",
+    "test": "jest --config ./jest.config.json --setupFiles dotenv/config --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages master -d build"
@@ -24,6 +24,17 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+   "src/**/*.{js,jsx,json,css,scss,md}": [
+     "prettier --single-quote --write",
+     "git add"
+   ]
+ },
   "browserslist": [
     ">0.2%",
     "not dead",
