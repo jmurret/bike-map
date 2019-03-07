@@ -3,7 +3,7 @@ bike-map
 
 https://jmurret.github.io/bike-map/
 
-A map of on-demand bike vendors in cities around the world.  A simple POC to explore the capabilities of react-map-gl and deck.gl.
+A map of on-demand bike vendors in cities around the world.  A simple POC to explore the capabilities of react-map-gl.
 
 Uses the free api at api.citybik.es.  Really appreciate that they share this data.  
 
@@ -17,5 +17,6 @@ Steps to run:
 Notes:
 --------------------------
 -Some locations have a center point that is a little off with the default zoom level for the city.  Try a few and you will see.  Denver and Portland to name a few work really well.  
+-Integration tests in App.test.js highlight the value of integration tests.  Achieving the same full tests coverage of almost 100% as unit tests (not including map related tests as I try to find the best way to test). Integration tests are capturing the desired interaction and the implementation can be change yet still support these tests.
 
 John Murret (jmurret@yahoo.com)
