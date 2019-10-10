@@ -3,7 +3,7 @@ description: Build and test my repo
 executors:
   default:
     docker:
-    - image: alpine:latest
+    - image: circleci/node:latest
 jobs: 
   build:
     description: Install dependencies, build, test
