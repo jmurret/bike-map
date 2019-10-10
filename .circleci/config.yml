@@ -9,6 +9,7 @@ jobs:
     description: Install dependencies, build, test
     executor: default
     steps:
+    - checkout
     - run:
         name: Install dependencies
         command: npm run install
