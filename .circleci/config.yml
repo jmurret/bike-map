@@ -3,7 +3,7 @@ description: Build and test my repo
 executors:
   default:
     docker:
-    - image: circleci/node:latest
+    - image: alpine:latest
 jobs: 
   build:
     description: Install dependencies, build, test
@@ -11,10 +11,10 @@ jobs:
     steps:
     - run:
         name: Install dependencies
-        command: yarn install
+        command: npm run install
     - run:
         name: Build
-        command: yarn build
+        command: npm run build --if-present
     - run:
         name: Test
-        command: yarn test
+        command: npm run test
