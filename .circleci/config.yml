@@ -3,7 +3,7 @@ description: Build and test my repo
 executors:
   default:
     docker:
-    - image: alpine:latest
+    - image: node:alpine
 jobs: 
   build:
     description: Install dependencies, build, test
