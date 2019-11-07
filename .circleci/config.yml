@@ -5,7 +5,7 @@ executors: # https://circleci.com/docs/2.0/configuration-reference/#executors-re
     docker:
     - image: node:alpine
 orbs: 
-  sb: sandbox-jm/sandbox@0.0.8
+  sb: sandbox-jm/sandbox@0.0.9
 jobs: # https://circleci.com/docs/2.0/configuration-reference/#jobs
   build:
     description: Install dependencies, build, test
