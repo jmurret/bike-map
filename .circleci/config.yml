@@ -1,21 +1,14 @@
-version: 2.1
+version: 2.1 # https://circleci.com/docs/2.0/configuration-reference/#version
 description: Build and test my repo  
-executors:
+executors: # https://circleci.com/docs/2.0/configuration-reference/#executors-requires-version-21
   default:
     docker:
     - image: node:alpine
-jobs: 
+orbs: 
+  sb: sandbox-jm/sandbox@0.0.1
+jobs: # https://circleci.com/docs/2.0/configuration-reference/#jobs
   build:
     description: Install dependencies, build, test
     executor: default
     steps:
-    - checkout
-    - run:
-        name: Install dependencies
-        command: npm install
-    - run:
-        name: Build
-        command: npm run build --if-present
-    - run:
-        name: Test
-        command: npm run test
+    - sb/hello
