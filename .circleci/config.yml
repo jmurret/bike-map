@@ -16,7 +16,7 @@ orbs:
         description: |
           Custom Docker image with pre-packaged welcome orb commands
         docker:
-        - image: circleci/welcome-config-image:0.2
+        - image: circleci/welcome-config-image:0.2.1
     jobs:
       run:
         description: |
