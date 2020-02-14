@@ -3,21 +3,10 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 
-executors:
-  node:
-    parameters:
-      tag:
-        type: string
-        default: '10'
-    docker:
-      - image: circleci/node:<< parameters.tag >>
-
 jobs:
   build-and-test:
-    parameters:
     executor:
-      name: node
-      tag: << parameters.node_version >>
+      name: node/default
     steps:
       - checkout
       - node/with-cache:
