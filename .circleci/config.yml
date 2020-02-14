@@ -13,7 +13,7 @@ executors:
       - image: circleci/node:<< parameters.tag >>
 
 jobs:
-  build:
+  build-and-test:
     parameters:
     executor:
       name: node
