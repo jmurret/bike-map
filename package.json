@@ -17,6 +17,7 @@
     "deploy": "gh-pages master -d build",
     "predeploy": "npm run build",
     "start": "react-scripts start",
+    "start-production": "react-scripts start",
     "test:watch": "jest --config ./jest.config.json  --setupFiles dotenv/config --watch",
     "test": "jest --config ./jest.config.json --setupFiles dotenv/config --coverage"
   },
