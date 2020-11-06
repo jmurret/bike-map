@@ -20,3 +20,4 @@ Notes:
 -Integration tests in App.test.js highlight the value of integration tests.  Achieving the same full tests coverage of almost 100% as unit tests (not including map related tests as I try to find the best way to test). Integration tests are capturing the desired interaction and the implementation can be change yet still support these tests.
 
 John Murret (jmurret@yahoo.com)
+--
