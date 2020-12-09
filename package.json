@@ -5,7 +5,7 @@
   "homepage": "https://jmurret.github.io/bike-map/",
   "dependencies": {
     "d3-ease": "1.0.6",
-    "deck.gl": "8.1.5",
+    "deck.gl": "8.3.8",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-map-gl": "5.2.7",
