@@ -5,7 +5,7 @@ https://jmurret.github.io/bike-map/
 
 A map of on-demand bike vendors in cities around the world.  A simple POC to explore the capabilities of react-map-gl.
 
-Uses the free api at api.citybik.es.  Really appreciate that they share this data.  
+Uses the free api at api.citybik.es.  I really appreciate that they share this data.  
 
 Steps to run:
 --------------------------
