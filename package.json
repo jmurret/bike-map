@@ -9,8 +9,9 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-map-gl": "5.2.7",
-    "react-scripts": "3.4.1",
-    "styled-components": "5.1.1"
+    "react-scripts": "4.0.0",
+    "styled-components": "5.1.1",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "build": "react-scripts build",
@@ -19,7 +20,9 @@
     "start": "react-scripts start",
     "start-production": "react-scripts start",
     "test:watch": "jest --config ./jest.config.json  --setupFiles dotenv/config --watch",
-    "test": "jest --config ./jest.config.json --setupFiles dotenv/config --coverage"
+    "test": "jest --config ./jest.config.json --setupFiles dotenv/config --coverage",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,5 +52,6 @@
     "gh-pages": "^2.0.1",
     "jest-fetch-mock": "^2.1.1",
     "jest-styled-components": "^6.3.1"
-  }
+  },
+  "snyk": true
 }
